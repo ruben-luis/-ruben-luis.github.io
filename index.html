@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Luis Dinorin — Portfolio</title>
+<meta name="description" content="Luis Dinorin Rubén — Ingeniero Industrial y desarrollador freelance de Puebla, México. Web, datos y procesos."/>
+<meta property="og:title" content="Luis Dinorin Rubén — Portfolio"/>
+<meta property="og:description" content="Ingeniero Industrial · Dev Freelance · Puebla, MX · Remoto"/>
+<meta property="og:image" content="Gemini_Generated_Image_g4fsmcg4fsmcg4fs.png"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" type="image/png" href="Gemini_Generated_Image_g4fsmcg4fsmcg4fs.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#0c0c0c;color:#fff;font-family:'Kanit',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:#0c0c0c}
+::-webkit-scrollbar-thumb{background:#222;border-radius:2px}
+::selection{background:#e8ff00;color:#0c0c0c}
+
+:root{
+  --accent:#e8ff00;
+  --a10:rgba(232,255,0,.10);
+  --a20:rgba(232,255,0,.20);
+  --a30:rgba(232,255,0,.30);
+  --w05:rgba(255,255,255,.05);
+  --w08:rgba(255,255,255,.08);
+  --w15:rgba(255,255,255,.15);
+  --w30:rgba(255,255,255,.30);
+  --w50:rgba(255,255,255,.50);
+}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.reveal.from-left{transform:translateX(-40px)}
+.reveal.from-right{transform:translateX(40px)}
+.reveal.visible{opacity:1;transform:none}
+.delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}
+.delay-3{transition-delay:.3s}.delay-4{transition-delay:.4s}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem 3rem;
+  background:rgba(12,12,12,.7);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.04);
+  transition:background .3s;
+}
+.nav-logo{font-weight:900;font-size:1.1rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-decoration:none;cursor:pointer}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  font-size:.78rem;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--w50);
+  transition:color .2s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;
+  height:1px;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;transition:transform .3s;
+}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-time{font-size:.72rem;color:rgba(255,255,255,.2);letter-spacing:.14em;font-weight:300}
+.nav-btn{
+  padding:.5rem 1.4rem;border-radius:100px;
+  border:1px solid var(--w15);
+  font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;transition:background .2s,border-color .2s;
+}
+.nav-btn:hover{background:var(--accent);color:#0c0c0c;border-color:var(--accent)}
+
+/* HERO */
+#hero{
+  min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;overflow:hidden;padding-top:80px;
+}
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%);
+}
+.hero-glow{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,255,0,.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-stage{
+  display:flex;align-items:center;justify-content:center;
+  gap:0;position:relative;z-index:10;width:100%;
+}
+.hero-name-left{
+  flex:1;text-align:right;padding-right:2vw;
+  font-weight:900;line-height:.88;letter-spacing:-.03em;
+  font-size:clamp(4.5rem,9vw,8rem);text-transform:uppercase;
+  opacity:0;animation:slideFromLeft .9s .3s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-name-right{
+  flex:1;text-align:left;padding-left:2vw;
+  font-weight:900;line-height:.88;letter-spacing:-.03em;
+  font-size:clamp(4.5rem,9vw,8rem);text-transform:uppercase;color:var(--accent);
+  opacity:0;animation:slideFromRight .9s .3s cubic-bezier(.22,1,.36,1) forwards;
+}
+@keyframes slideFromLeft{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:none}}
+@keyframes slideFromRight{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.hero-photo-wrap{
+  position:relative;flex-shrink:0;
+  opacity:0;animation:fadeUp 1s .5s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-photo-orbit{
+  position:absolute;inset:-18px;border-radius:50%;
+  border:1px dashed rgba(232,255,0,.28);
+  animation:spin 14s linear infinite;
+}
+.hero-photo-orbit::before{
+  content:'';position:absolute;top:-6px;left:50%;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--accent);transform:translateX(-50%);
+  box-shadow:0 0 16px 4px rgba(232,255,0,.8);
+}
+.hero-photo-orbit2{
+  position:absolute;inset:-38px;border-radius:50%;
+  border:1px solid rgba(232,255,0,.08);
+  animation:spinBack 22s linear infinite;
+}
+.hero-photo-orbit2::after{
+  content:'';position:absolute;bottom:-5px;left:50%;
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(232,255,0,.5);transform:translateX(-50%);
+  box-shadow:0 0 10px rgba(232,255,0,.6);
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinBack{to{transform:rotate(-360deg)}}
+
+.hero-photo{
+  width:clamp(200px,20vw,320px);height:clamp(200px,20vw,320px);
+  border-radius:50%;overflow:hidden;
+  border:2px solid rgba(232,255,0,.22);
+  box-shadow:0 0 0 0 rgba(232,255,0,.15),0 30px 80px rgba(0,0,0,.6);
+  animation:floatDiag 5s ease-in-out infinite,glowPulse 3s ease-in-out infinite;
+}
+@keyframes floatDiag{
+  0%  {transform:translateY(0)    translateX(0)    rotate(0deg)}
+  25% {transform:translateY(-14px) translateX(7px)  rotate(.8deg)}
+  50% {transform:translateY(-20px) translateX(0)    rotate(0deg)}
+  75% {transform:translateY(-14px) translateX(-7px) rotate(-.8deg)}
+  100%{transform:translateY(0)    translateX(0)    rotate(0deg)}
+}
+@keyframes glowPulse{
+  0%,100%{box-shadow:0 0 20px rgba(232,255,0,.08),0 30px 80px rgba(0,0,0,.6)}
+  50%    {box-shadow:0 0 55px rgba(232,255,0,.28),0 0 90px rgba(232,255,0,.1),0 30px 80px rgba(0,0,0,.6)}
+}
+.hero-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  filter:grayscale(8%);animation:imgZoom 10s ease-in-out infinite;
+}
+@keyframes imgZoom{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+
+.hero-meta{
+  display:flex;align-items:center;justify-content:center;
+  gap:1.5rem;margin-top:3rem;position:relative;z-index:10;
+  opacity:0;animation:fadeUp .7s .8s forwards;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.45rem 1.2rem;border-radius:100px;
+  border:1px solid var(--w08);background:var(--w05);
+  font-size:.72rem;font-weight:400;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--w50);
+}
+.hero-tag.active{border-color:var(--a30);color:var(--accent)}
+.hero-tag-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+
+.hero-scroll{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  z-index:10;opacity:0;animation:fadeIn .8s 1.5s forwards;
+}
+.hero-scroll-line{
+  width:1px;height:44px;
+  background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent);
+  animation:bob 1.6s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.hero-scroll span{font-size:.6rem;letter-spacing:.3em;color:rgba(255,255,255,.15);text-transform:uppercase}
+
+/* RUBEN detrás de la foto */
+.hero-ruben{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-115%);
+  z-index:9;display:flex;gap:.02em;
+  font-weight:900;
+  font-size:clamp(6rem,13vw,12rem);
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);opacity:.22;
+  filter:blur(6px);
+  pointer-events:none;white-space:nowrap;user-select:none;
+}
+.hero-ruben span{display:inline-block;animation:rubenFloat 4s ease-in-out infinite}
+.hero-ruben span:nth-child(1){animation-delay:0s}
+.hero-ruben span:nth-child(2){animation-delay:.2s}
+.hero-ruben span:nth-child(3){animation-delay:.4s}
+.hero-ruben span:nth-child(4){animation-delay:.6s}
+.hero-ruben span:nth-child(5){animation-delay:.8s}
+@keyframes rubenFloat{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  35%    {transform:translateY(-20px) rotate(2deg)}
+  70%    {transform:translateY(12px) rotate(-1.2deg)}
+}
+
+/* MARQUEE */
+.marquee-wrap{
+  padding:1.4rem 0;overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.04);
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.marquee-row{display:flex;gap:0;white-space:nowrap}
+.marquee-row.r1{animation:mLeft 28s linear infinite}
+.marquee-row.r2{animation:mRight 32s linear infinite}
+@keyframes mLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.mq-item{
+  display:inline-flex;align-items:center;gap:2rem;
+  padding:.2rem 2rem;flex-shrink:0;
+  font-size:.78rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(255,255,255,.55);
+}
+.mq-sep{color:var(--accent);font-size:.55rem}
+
+/* SECTION BASE */
+.section{max-width:1280px;margin:0 auto;padding:7rem 3rem}
+.eyebrow{
+  font-size:.72rem;font-weight:600;letter-spacing:.25em;
+  text-transform:uppercase;color:var(--accent);
+  display:flex;align-items:center;gap:.75rem;margin-bottom:1.4rem;
+}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
+.section-title{
+  font-weight:900;line-height:1;letter-spacing:-.02em;
+  font-size:clamp(2.8rem,5vw,4.5rem);text-transform:uppercase;
+}
+.section-title em{color:var(--accent);font-style:normal}
+.section-sub{
+  color:var(--w50);font-weight:300;font-size:1rem;
+  line-height:1.8;max-width:500px;font-family:'Inter',sans-serif;
+}
+
+/* ABOUT */
+#about{background:rgba(255,255,255,.01)}
+.about-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:5rem;align-items:center;margin-top:4rem;
+}
+.about-photo-wrap{position:relative;animation:aboutDrift 6s ease-in-out infinite}
+@keyframes aboutDrift{
+  0%  {transform:translateX(0)     rotate(0deg)}
+  25% {transform:translateX(12px)  rotate(.5deg)}
+  50% {transform:translateX(0)     rotate(0deg)}
+  75% {transform:translateX(-12px) rotate(-.5deg)}
+  100%{transform:translateX(0)     rotate(0deg)}
+}
+.about-photo{
+  border-radius:2rem;overflow:hidden;aspect-ratio:4/5;
+  border:1px solid var(--w08);
+  animation:aboutGlow 6s ease-in-out infinite;
+}
+@keyframes aboutGlow{
+  0%,100%{box-shadow:0 0 20px rgba(232,255,0,.04)}
+  25%    {box-shadow:16px 0 40px rgba(232,255,0,.12),-4px 0 0 rgba(232,255,0,.06)}
+  75%    {box-shadow:-16px 0 40px rgba(232,255,0,.12),4px 0 0 rgba(232,255,0,.06)}
+}
+.about-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  filter:grayscale(12%);animation:aboutImgZoom 12s ease-in-out infinite;
+}
+@keyframes aboutImgZoom{
+  0%,100%{transform:scale(1) translateY(0)}
+  50%    {transform:scale(1.05) translateY(-8px)}
+}
+.about-photo-tag{
+  position:absolute;bottom:2rem;left:2rem;
+  background:rgba(12,12,12,.85);backdrop-filter:blur(12px);
+  border:1px solid var(--w08);border-radius:1rem;padding:1rem 1.4rem;
+}
+.about-photo-tag .val{font-weight:900;font-size:2.2rem;color:var(--accent);line-height:1}
+.about-photo-tag .lbl{font-size:.72rem;font-weight:400;color:var(--w50);letter-spacing:.1em}
+.about-body .section-sub{max-width:100%;margin-top:1.5rem}
+.about-body .section-sub+.section-sub{margin-top:1rem}
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
+.stat{
+  padding:1.5rem;border-radius:1.2rem;
+  border:1px solid var(--w05);background:var(--w05);
+  transition:border-color .3s,background .3s;
+}
+.stat:hover{border-color:var(--a20);background:var(--a10)}
+.stat-val{font-weight:900;font-size:2.4rem;color:var(--accent);line-height:1;margin-bottom:.3rem}
+.stat-lbl{font-size:.78rem;color:rgba(255,255,255,.35);font-weight:300;font-family:'Inter',sans-serif}
+.about-cta{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.85rem 2rem;border-radius:100px;
+  font-family:'Kanit',sans-serif;font-weight:700;
+  font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+  transition:all .2s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--accent);color:#0c0c0c}
+.btn-primary:hover{background:#fff;transform:translateY(-2px)}
+.btn-outline{background:transparent;color:#fff;border:1px solid var(--w15)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+/* SERVICES — Bento 3D */
+#services{background:#0c0c0c;overflow:hidden}
+.services-intro{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:2rem;margin-bottom:4rem;
+}
+.svc-bento{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.4rem;
+  list-style:none;padding:0;margin:0;
+}
+.svc-card{
+  position:relative;border-radius:1.5rem;
+  background:linear-gradient(145deg,rgba(255,255,255,.04) 0%,rgba(255,255,255,.015) 100%);
+  border:1px solid rgba(255,255,255,.06);
+  padding:2rem 2rem 1.8rem;
+  overflow:hidden;cursor:default;
+  display:flex;flex-direction:column;gap:0;
+  transition:box-shadow .4s,border-color .4s;
+  will-change:transform;
+}
+.svc-card:hover{
+  border-color:rgba(232,255,0,.22);
+  box-shadow:0 28px 80px rgba(0,0,0,.55),0 0 60px rgba(232,255,0,.06),inset 0 1px 0 rgba(232,255,0,.1);
+}
+/* scan line on hover */
+.svc-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 0%,rgba(232,255,0,.025) 50%,transparent 100%);
+  transform:translateY(-100%);pointer-events:none;
+  transition:transform 0s;
+}
+.svc-card:hover::after{transform:translateY(100%);transition:transform 1.4s ease}
+/* bottom corner glow orb */
+.svc-orb{
+  position:absolute;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,255,0,.055),transparent 70%);
+  right:-70px;bottom:-70px;pointer-events:none;
+  opacity:.4;transition:transform .5s,opacity .5s;
+}
+.svc-card:hover .svc-orb{transform:scale(1.5);opacity:1}
+/* featured card spans 2 columns */
+.svc-card.feat{grid-column:span 2}
+.svc-num{
+  position:absolute;top:1.4rem;right:1.6rem;
+  font-size:.58rem;font-weight:900;letter-spacing:.3em;
+  color:rgba(232,255,0,.14);
+}
+.svc-icon-3d{
+  width:58px;height:58px;border-radius:16px;
+  background:linear-gradient(135deg,rgba(232,255,0,.14),rgba(232,255,0,.04));
+  border:1px solid rgba(232,255,0,.14);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;
+  margin-bottom:1.4rem;
+  box-shadow:0 8px 28px rgba(232,255,0,.1);
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s;
+}
+.svc-card:hover .svc-icon-3d{
+  transform:scale(1.12) translateY(-4px);
+  box-shadow:0 18px 44px rgba(232,255,0,.22);
+}
+.svc-name-3d{font-weight:700;font-size:1.1rem;margin-bottom:.55rem;line-height:1.25}
+.svc-desc-3d{color:rgba(255,255,255,.34);font-size:.875rem;line-height:1.8;font-family:'Inter',sans-serif;margin-bottom:1.4rem;flex:1}
+/* tags */
+.svc-tags-3d{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1rem}
+.svc-tag-3d{
+  padding:.2rem .65rem;border-radius:100px;
+  background:rgba(232,255,0,.05);border:1px solid rgba(232,255,0,.1);
+  color:rgba(232,255,0,.5);font-size:.63rem;font-weight:500;letter-spacing:.04em;
+  transition:background .25s,color .25s,border-color .25s;
+}
+.svc-card:hover .svc-tag-3d{background:rgba(232,255,0,.09);color:rgba(232,255,0,.8);border-color:rgba(232,255,0,.22)}
+
+/* EXPERIENCE & EDUCATION — horizontal scroll timeline */
+#experience{background:rgba(255,255,255,.01);overflow:hidden}
+.tl-h-wrap{position:relative;margin-top:3.5rem;padding:0 2rem}
+.tl-h-track{
+  display:flex;gap:0;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none;
+  padding-bottom:1rem;
+}
+.tl-h-track::-webkit-scrollbar{display:none}
+.tl-h-item{flex:0 0 calc(100% / 3);display:flex;flex-direction:column;padding-right:1.4rem}
+/* dot + line connector */
+.tl-h-dot-row{
+  display:flex;align-items:center;height:24px;margin-bottom:1.2rem;
+}
+.tl-h-dot{
+  width:12px;height:12px;border-radius:50%;flex-shrink:0;
+  background:var(--accent);
+  box-shadow:0 0 0 3px rgba(232,255,0,.12),0 0 14px rgba(232,255,0,.35);
+}
+.tl-h-line{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,rgba(232,255,0,.35),rgba(232,255,0,.06));
+}
+/* card */
+.tl-h-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.07);border-radius:1.1rem;
+  padding:1.3rem 1.3rem 1.4rem;flex:1;
+  transition:border-color .3s,box-shadow .3s;
+}
+.tl-h-card:hover{
+  border-color:rgba(232,255,0,.2);
+  box-shadow:0 16px 48px rgba(0,0,0,.45),0 0 28px rgba(232,255,0,.05);
+}
+/* scroll arrow buttons */
+.tl-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.5);font-size:1.2rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .25s;z-index:10;
+}
+.tl-prev{left:0}.tl-next{right:0}
+.tl-btn:hover{
+  background:rgba(232,255,0,.1);border-color:rgba(232,255,0,.3);
+  color:var(--accent);box-shadow:0 0 18px rgba(232,255,0,.12);
+}
+/* shared text styles */
+.tl-badge{
+  display:inline-flex;align-items:center;
+  padding:.18rem .65rem;border-radius:100px;
+  font-size:.58rem;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;margin-bottom:.55rem;
+}
+.tl-work{background:rgba(232,255,0,.1);color:var(--accent);border:1px solid rgba(232,255,0,.22)}
+.tl-edu{background:rgba(100,180,255,.08);color:#7ec8ff;border:1px solid rgba(100,180,255,.22)}
+.tl-date{font-size:.68rem;font-weight:500;letter-spacing:.1em;color:rgba(255,255,255,.25);text-transform:uppercase;margin-bottom:.4rem}
+.tl-role{font-weight:700;font-size:.95rem;line-height:1.25;margin-bottom:.25rem}
+.tl-company{color:var(--w50);font-size:.82rem;font-family:'Inter',sans-serif}
+.tl-location{font-size:.68rem;color:rgba(255,255,255,.2);font-family:'Inter',sans-serif;margin-top:.3rem}
+
+/* PROJECTS */
+#projects{background:#0c0c0c}
+.wallet-wrap{display:flex;flex-direction:column;align-items:center;gap:2.5rem;margin-top:4rem}
+.wallet-hint-txt{
+  font-size:.72rem;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(255,255,255,.22);
+  display:flex;align-items:center;gap:.6rem;transition:opacity .4s;
+}
+.wallet-hint-txt.hidden{opacity:0;pointer-events:none}
+.wallet-stack{
+  position:relative;width:min(420px,90vw);height:260px;
+  transition:height .65s cubic-bezier(.22,1,.36,1);
+}
+.w-card{
+  position:absolute;top:0;left:0;right:0;
+  width:100%;height:230px;border-radius:22px;overflow:hidden;
+  cursor:pointer;user-select:none;
+  border:1px solid rgba(255,255,255,.09);
+  transition:transform .65s cubic-bezier(.22,1,.36,1),opacity .45s ease,box-shadow .45s ease;
+  will-change:transform;
+}
+.wc-bg{position:absolute;inset:0;background:var(--cg)}
+.wc-bg::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(-45deg,rgba(255,255,255,.015) 0px,rgba(255,255,255,.015) 1px,transparent 1px,transparent 20px);
+}
+.wc-shine{
+  position:absolute;inset:0;
+  background:linear-gradient(130deg,rgba(255,255,255,.12) 0%,transparent 55%);
+  pointer-events:none;
+}
+.wc-body{position:absolute;inset:0;padding:1.6rem;display:flex;flex-direction:column;justify-content:space-between}
+.wc-top{display:flex;align-items:center;justify-content:space-between}
+.wc-num{font-size:.65rem;font-weight:800;letter-spacing:.24em;color:rgba(255,255,255,.45)}
+.wc-year{font-size:.65rem;font-weight:400;letter-spacing:.12em;color:rgba(255,255,255,.3)}
+.wc-icon{font-size:1.8rem;opacity:.6;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+.wc-name{
+  font-weight:900;font-size:clamp(1.1rem,3vw,1.4rem);
+  text-transform:uppercase;letter-spacing:-.01em;line-height:1.05;
+  color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+.wc-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.6rem}
+.wc-tag{
+  padding:.18rem .6rem;border-radius:100px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14);
+  font-size:.6rem;font-weight:500;color:rgba(255,255,255,.7);
+}
+/* stacked initial positions */
+.w-card[data-idx="6"]{transform:translateY(-22px) scale(.78);z-index:0;opacity:.18}
+.w-card[data-idx="5"]{transform:translateY(-18px) scale(.80);z-index:0;opacity:.28}
+.w-card[data-idx="4"]{transform:translateY(-14px) scale(.83);z-index:0;opacity:.4}
+.w-card[data-idx="3"]{transform:translateY(-8px)  scale(.86);z-index:0;opacity:.55}
+.w-card[data-idx="2"]{transform:translateY(0)     scale(.90);z-index:1;opacity:.7}
+.w-card[data-idx="1"]{transform:translateY(14px)  scale(.95);z-index:2;opacity:.85}
+.w-card[data-idx="0"]{transform:translateY(28px)  scale(1);  z-index:3;opacity:1}
+/* fanned — 120px gap, 7 cards */
+.ws-fanned .w-card[data-idx="6"]{transform:translateY(0px)   scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="5"]{transform:translateY(120px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="4"]{transform:translateY(240px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="3"]{transform:translateY(360px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="2"]{transform:translateY(480px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="1"]{transform:translateY(600px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="0"]{transform:translateY(720px) scale(1);opacity:1}
+/* hover in fanned */
+.ws-fanned .w-card[data-idx="6"]:hover{transform:translateY(-6px)  scale(1.015) !important}
+.ws-fanned .w-card[data-idx="5"]:hover{transform:translateY(114px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="4"]:hover{transform:translateY(234px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="3"]:hover{transform:translateY(354px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="2"]:hover{transform:translateY(474px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="1"]:hover{transform:translateY(594px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="0"]:hover{transform:translateY(714px) scale(1.015) !important}
+.ws-selected .w-card.ws-rest{
+  opacity:0;pointer-events:none;visibility:hidden;
+  transform:scale(.92);transition:opacity .35s,transform .35s,visibility .35s;
+}
+.ws-selected .w-card.ws-active{
+  transform:translateY(0) scale(1.02);opacity:1;pointer-events:auto;z-index:10;
+  visibility:visible;
+  box-shadow:0 30px 80px rgba(0,0,0,.8),0 0 60px rgba(255,255,255,.04);
+  cursor:pointer;
+}
+.w-info{
+  width:min(480px,90vw);text-align:center;
+  opacity:0;transform:translateY(22px);
+  transition:opacity .5s ease .1s,transform .5s ease .1s;pointer-events:none;
+}
+.w-info.visible{opacity:1;transform:none;pointer-events:auto}
+.wi-counter{font-size:.68rem;font-weight:800;letter-spacing:.28em;color:var(--accent);text-transform:uppercase;opacity:.65;margin-bottom:.8rem}
+.wi-title{font-weight:900;font-size:clamp(1.8rem,4vw,2.8rem);text-transform:uppercase;letter-spacing:-.02em;line-height:1;margin-bottom:.75rem}
+.wi-desc{color:rgba(255,255,255,.42);font-size:.9rem;line-height:1.8;font-family:'Inter',sans-serif;font-weight:300;margin-bottom:1.3rem}
+.wi-tags{display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.6rem}
+.wi-tag{padding:.22rem .75rem;border-radius:100px;background:var(--w05);border:1px solid var(--w08);color:rgba(255,255,255,.35);font-size:.7rem}
+.wi-links{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.4rem}
+.wi-back{
+  background:none;border:none;cursor:pointer;
+  color:rgba(255,255,255,.3);font-family:'Kanit',sans-serif;
+  font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  transition:color .2s;padding:.4rem .8rem;
+}
+.wi-back:hover{color:rgba(255,255,255,.7)}
+.w-dots{display:flex;gap:.7rem;align-items:center}
+.wd{
+  width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.14);
+  border:none;cursor:pointer;padding:0;transition:background .3s,transform .3s;
+}
+.wd.active{background:var(--accent);transform:scale(1.45)}
+
+/* CONTACT */
+#contact{background:rgba(255,255,255,.01);text-align:center}
+.contact-inner{max-width:700px;margin:0 auto}
+.contact-title{
+  font-weight:900;line-height:1;letter-spacing:-.02em;text-transform:uppercase;
+  font-size:clamp(3rem,7vw,6rem);margin:1.5rem 0 1rem;
+}
+.contact-title em{color:var(--accent);font-style:normal;display:block}
+.contact-sub{color:var(--w50);font-size:1rem;font-weight:300;font-family:'Inter',sans-serif;line-height:1.8;margin-bottom:3rem}
+.contact-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:4rem}
+.contact-socials{display:flex;gap:1.5rem;justify-content:center;margin-top:2rem}
+.social-link{
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--w08);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--w30);transition:border-color .2s,color .2s,background .2s;
+}
+.social-link:hover{border-color:var(--accent);color:var(--accent)}
+.social-link svg{width:16px;height:16px}
+
+footer{
+  padding:2rem 3rem;border-top:1px solid rgba(255,255,255,.04);
+  display:flex;align-items:center;justify-content:space-between;
+  color:rgba(255,255,255,.18);font-size:.72rem;letter-spacing:.1em;
+}
+
+/* SIDE NAV — Dots only */
+.side-nav{
+  position:fixed !important;
+  left:1.4rem !important;
+  right:auto !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+  z-index:90;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:auto !important;
+  padding:0 !important;
+  gap:.9rem;
+  overflow:visible;
+  background:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  border:none !important;
+  border-bottom:none !important;
+  box-shadow:none !important;
+}
+.sn-item{
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;text-decoration:none;
+  width:20px;height:20px;
+}
+.sn-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(232,255,0,.25);
+  border:none;
+  flex-shrink:0;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1),
+             background .25s,box-shadow .25s;
+}
+.sn-item.active .sn-dot{
+  background:var(--accent);
+  box-shadow:0 0 10px rgba(232,255,0,.7),0 0 22px rgba(232,255,0,.25);
+  transform:scale(1.5);
+}
+.sn-item:hover .sn-dot{
+  background:var(--accent);
+  box-shadow:0 0 14px rgba(232,255,0,.8),0 0 30px rgba(232,255,0,.3);
+  transform:scale(2.2);
+}
+.sn-label{
+  position:absolute;left:calc(100% + .9rem);
+  font-size:.56rem;letter-spacing:.18em;
+  text-transform:uppercase;font-weight:600;
+  color:rgba(255,255,255,0);
+  white-space:nowrap;font-family:'Kanit',sans-serif;
+  pointer-events:none;
+  transform:translateX(-8px);
+  transition:color .25s,transform .32s cubic-bezier(.22,1,.36,1);
+}
+.sn-item:hover .sn-label{
+  color:rgba(255,255,255,.75);
+  transform:translateX(0);
+}
+.sn-item.active:hover .sn-label{color:rgba(232,255,0,.8);transform:translateX(0)}
+
+/* HAMBURGER + MOBILE NAV */
+.ham-btn{
+  display:none;flex-direction:column;justify-content:center;
+  gap:5px;cursor:pointer;background:none;border:none;padding:4px;
+  width:32px;height:32px;flex-shrink:0;
+}
+.ham-btn span{
+  display:block;width:22px;height:2px;background:#fff;border-radius:2px;
+  transition:transform .35s,opacity .3s,width .3s;transform-origin:center;
+}
+.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham-btn.open span:nth-child(2){opacity:0;width:0}
+.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mob-nav{
+  position:fixed;inset:0;z-index:99;
+  background:rgba(12,12,12,.97);backdrop-filter:blur(24px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2.4rem;
+  transform:translateX(100%);
+  visibility:hidden;
+  pointer-events:none;
+  transition:transform .55s cubic-bezier(.22,1,.36,1),visibility 0s .55s;
+}
+.mob-nav.open{
+  transform:translateX(0);
+  visibility:visible;
+  pointer-events:all;
+  transition:transform .55s cubic-bezier(.22,1,.36,1),visibility 0s 0s;
+}
+.mob-nav-link{
+  font-size:clamp(2rem,9vw,3.5rem);font-weight:900;
+  letter-spacing:-.02em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);transition:color .25s,transform .25s;
+  display:block;text-decoration:none;
+}
+.mob-nav-link:hover{color:#fff;transform:translateX(8px)}
+.mob-nav-contact{display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;justify-content:center}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .svc-bento{grid-template-columns:1fr 1fr}
+  .svc-card.feat{grid-column:span 2}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-photo-wrap{max-width:380px;margin:0 auto}
+}
+@media(max-width:768px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-links{display:none}
+  .ham-btn{display:flex}
+  .nav-time{display:none}
+  .side-nav{display:none !important}
+  .section{padding:4rem 1.5rem}
+  .hero-name-left,.hero-name-right{font-size:clamp(3.5rem,12vw,7rem)}
+  .svc-bento{grid-template-columns:1fr}
+  .svc-card.feat{grid-column:span 1}
+  .services-intro{flex-direction:column;align-items:flex-start}
+  footer{flex-direction:column;gap:1rem;text-align:center}
+  .timeline{padding-left:1rem}
+  .tl-h-item{flex:0 0 calc(100% - 1.4rem)}
+  .wallet-wrap{margin-top:2.5rem}
+  .about-grid{margin-top:2.5rem}
+  .contact-btns{margin-bottom:2.5rem}
+}
+@media(max-width:480px){
+  .hero-stage{flex-direction:column;gap:1.5rem;padding:0 1rem}
+  .hero-name-left{flex:none;text-align:center;padding:0;font-size:clamp(3rem,18vw,5rem)}
+  .hero-name-right{flex:none;text-align:center;padding:0;font-size:clamp(3rem,18vw,5rem)}
+  .hero-photo{width:clamp(160px,50vw,220px);height:clamp(160px,50vw,220px)}
+  .hero-meta{flex-wrap:wrap;gap:.5rem;padding:0 1rem;justify-content:center}
+  .hero-tag{font-size:.6rem;padding:.35rem .85rem}
+  .contact-title{font-size:clamp(2.2rem,12vw,3.5rem)}
+  .contact-btns{flex-direction:column;align-items:center}
+  .contact-btns .btn{width:100%;max-width:280px;justify-content:center}
+  .stats-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .wallet-stack{height:240px}
+  .ws-fanned .w-card[data-idx="6"]{transform:translateY(0px)   scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="5"]{transform:translateY(90px)  scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="4"]{transform:translateY(180px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="3"]{transform:translateY(270px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="2"]{transform:translateY(360px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="1"]{transform:translateY(450px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="0"]{transform:translateY(540px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="6"]:hover{transform:translateY(-6px)  scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="5"]:hover{transform:translateY(84px)  scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="4"]:hover{transform:translateY(174px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="3"]:hover{transform:translateY(264px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="2"]:hover{transform:translateY(354px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="1"]:hover{transform:translateY(444px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="0"]:hover{transform:translateY(534px) scale(1.015) !important}
+  .ws-selected .w-card.ws-active{transform:translateY(0) scale(1.01)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo" onclick="event.preventDefault();document.getElementById('hero').scrollIntoView({behavior:'smooth'})">L<span>.</span>DR</a>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#experience">Experiencia</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+  </ul>
+  <div class="nav-right">
+    <span class="nav-time" id="clock">00:00 · MX</span>
+    <a href="#contact" class="nav-btn" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contacto</a>
+    <button class="ham-btn" id="hamBtn" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-nav" id="mobNav" aria-hidden="true">
+  <a href="#about" class="mob-nav-link">Sobre mí</a>
+  <a href="#services" class="mob-nav-link">Servicios</a>
+  <a href="#experience" class="mob-nav-link">Experiencia</a>
+  <a href="#projects" class="mob-nav-link">Proyectos</a>
+  <a href="#contact" class="mob-nav-link">Contacto</a>
+  <div class="mob-nav-contact">
+    <a href="https://wa.me/522331353406?text=Hola%20Ruben%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20platicarte%20sobre%20un%20proyecto." class="btn btn-primary" target="_blank" rel="noopener" style="font-size:.72rem;padding:.65rem 1.4rem">WhatsApp</a>
+    <a href="mailto:ruben.dinorin8@gmail.com" class="btn btn-outline" style="font-size:.72rem;padding:.65rem 1.4rem">Email</a>
+  </div>
+</div>
+
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-ruben" aria-hidden="true">
+    <span>R</span><span>U</span><span>B</span><span>E</span><span>N</span>
+  </div>
+  <div class="hero-stage">
+    <h1 class="hero-name-left">Luis</h1>
+    <figure class="hero-photo-wrap">
+      <div class="hero-photo-orbit2"></div>
+      <div class="hero-photo-orbit"></div>
+      <div class="hero-photo">
+        <img src="Gemini_Generated_Image_g4fsmcg4fsmcg4fs.png" alt="Luis Dinorin"/>
+      </div>
+    </figure>
+    <span class="hero-name-right">Dinorin</span>
+  </div>
+  <aside class="hero-meta">
+    <div class="hero-tag active"><span class="hero-tag-dot"></span>Disponible</div>
+    <div class="hero-tag">Ing. Industrial</div>
+    <div class="hero-tag">Dev Freelance</div>
+    <div class="hero-tag">Puebla, MX · Remoto</div>
+  </aside>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-row r1" id="mq1"></div>
+  <div class="marquee-row r2" id="mq2"></div>
+</div>
+
+<section id="about">
+  <div class="section">
+    <div class="eyebrow reveal">Sobre mí</div>
+    <h2 class="section-title reveal delay-1">Ingeniero que<br><em>también crea.</em></h2>
+    <div class="about-grid">
+      <div class="reveal from-left">
+        <figure class="about-photo-wrap">
+          <div class="about-photo">
+            <img src="Gemini_Generated_Image_g4fsmcg4fsmcg4fs.png" alt="Luis Dinorin"/>
+          </div>
+          <figcaption class="about-photo-tag">
+            <span class="val">21</span>
+            <span class="lbl">Años · Puebla, MX</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="about-body reveal from-right">
+        <p class="section-sub">Estudiante de Ingeniería Industrial, 6.° semestre en el ITP, con experiencia real en manufactura, desarrollo de software y operaciones logísticas internacionales — trabajando en EE.UU. e intercambio académico en Colombia.</p>
+        <p class="section-sub">Combino formación técnica en procesos, calidad e investigación de operaciones con capacidad probada para operar en inglés y colaborar en equipos multiculturales de alta exigencia.</p>
+        <dl class="stats-row">
+          <div class="stat"><dd class="stat-val">B1</dd><dt class="stat-lbl">Inglés conversacional</dt></div>
+          <div class="stat"><dd class="stat-val">3</dd><dt class="stat-lbl">Años de formación técnica</dt></div>
+          <div class="stat"><dd class="stat-val">3</dd><dt class="stat-lbl">Países con experiencia</dt></div>
+          <div class="stat"><dd class="stat-val">5+</dd><dt class="stat-lbl">Proyectos entregados</dt></div>
+        </dl>
+        <div class="about-cta">
+          <a href="mailto:ruben.dinorin8@gmail.com" class="btn btn-primary">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Hablemos
+          </a>
+          <a href="#experience" class="btn btn-outline">Ver experiencia</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section">
+    <div class="services-intro">
+      <div>
+        <div class="eyebrow reveal">Lo que hago</div>
+        <h2 class="section-title reveal delay-1">Servicios &amp;<br><em>Especialidades</em></h2>
+      </div>
+      <p class="section-sub reveal delay-2" style="max-width:320px">Desde el análisis hasta el código — todo en uno.</p>
+    </div>
+    <ul class="svc-bento reveal delay-1">
+
+      <!-- 01 · Featured -->
+      <div class="svc-card feat">
+        <div class="svc-orb"></div>
+        <div class="svc-num">01</div>
+        <div class="svc-icon-3d">💻</div>
+        <h3 class="svc-name-3d">Desarrollo Web &amp; Software</h3>
+        <p class="svc-desc-3d">Sitios web y software a medida. Gestión completa del proyecto: requerimientos, desarrollo, implementación y soporte post-entrega.</p>
+        <div class="svc-tags-3d">
+          <span class="svc-tag-3d">HTML/CSS</span><span class="svc-tag-3d">JavaScript</span><span class="svc-tag-3d">React</span><span class="svc-tag-3d">Node.js</span>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="svc-card">
+        <div class="svc-orb"></div>
+        <div class="svc-num">02</div>
+        <div class="svc-icon-3d">⚙️</div>
+        <h3 class="svc-name-3d">Optimización de Procesos</h3>
+        <p class="svc-desc-3d">Lean y Mejora Continua. Identificación de desperdicios, brechas de seguridad y oportunidades desde el piso de planta.</p>
+        <div class="svc-tags-3d">
+          <span class="svc-tag-3d">Lean</span><span class="svc-tag-3d">Mejora Continua</span><span class="svc-tag-3d">Six Sigma</span>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="svc-card">
+        <div class="svc-orb"></div>
+        <div class="svc-num">03</div>
+        <div class="svc-icon-3d">📊</div>
+        <h3 class="svc-name-3d">Dashboards &amp; KPIs</h3>
+        <p class="svc-desc-3d">Paneles de control con indicadores operativos en tiempo real. Decisiones basadas en datos, no en intuición.</p>
+        <div class="svc-tags-3d">
+          <span class="svc-tag-3d">Power BI</span><span class="svc-tag-3d">Excel</span><span class="svc-tag-3d">Python</span>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="svc-card">
+        <div class="svc-orb"></div>
+        <div class="svc-num">04</div>
+        <div class="svc-icon-3d">📈</div>
+        <h3 class="svc-name-3d">Análisis de Datos</h3>
+        <p class="svc-desc-3d">Modelado estadístico y diagnóstico operacional para detectar oportunidades ocultas en los datos.</p>
+        <div class="svc-tags-3d">
+          <span class="svc-tag-3d">Python</span><span class="svc-tag-3d">Minitab</span><span class="svc-tag-3d">SQL</span>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="svc-card">
+        <div class="svc-orb"></div>
+        <div class="svc-num">05</div>
+        <div class="svc-icon-3d">🌐</div>
+        <h3 class="svc-name-3d">Logística &amp; Supply Chain</h3>
+        <p class="svc-desc-3d">Mejora de cadenas de suministro e inventarios con enfoque en eficiencia y reducción de costos operativos.</p>
+        <div class="svc-tags-3d">
+          <span class="svc-tag-3d">Supply Chain</span><span class="svc-tag-3d">AMPL</span><span class="svc-tag-3d">Inv. Operaciones</span>
+        </div>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section">
+    <div class="services-intro">
+      <div>
+        <div class="eyebrow reveal">Trayectoria</div>
+        <h2 class="section-title reveal delay-1">Experiencia &amp;<br><em>Educación</em></h2>
+      </div>
+      <p class="section-sub reveal delay-2" style="max-width:320px">Formación técnica sólida y experiencia real en tres países.</p>
+    </div>
+    <div class="tl-h-wrap reveal delay-1">
+      <button class="tl-btn tl-prev" aria-label="Anterior">&#8249;</button>
+      <div class="tl-h-track" id="tlTrack">
+
+        <article class="tl-h-item">
+          <div class="tl-h-dot-row"><div class="tl-h-dot"></div><div class="tl-h-line"></div></div>
+          <div class="tl-h-card">
+            <div class="tl-badge tl-edu">Educación</div>
+            <time class="tl-date">Ene. – Jun. 2026</time>
+            <h3 class="tl-role">Intercambio Académico</h3>
+            <p class="tl-company">Universidad Tecnológica de Pereira (UTP)</p>
+            <p class="tl-location">📍 Pereira, Colombia</p>
+          </div>
+        </article>
+
+        <article class="tl-h-item">
+          <div class="tl-h-dot-row"><div class="tl-h-dot"></div><div class="tl-h-line"></div></div>
+          <div class="tl-h-card">
+            <div class="tl-badge tl-work">Freelance</div>
+            <time class="tl-date">2026 – Presente</time>
+            <h3 class="tl-role">Desarrollador de Software</h3>
+            <p class="tl-company">Proyecto Propio · Remoto</p>
+            <p class="tl-location">📍 México</p>
+          </div>
+        </article>
+
+        <article class="tl-h-item">
+          <div class="tl-h-dot-row"><div class="tl-h-dot"></div><div class="tl-h-line"></div></div>
+          <div class="tl-h-card">
+            <div class="tl-badge tl-work">Trabajo</div>
+            <time class="tl-date">Jun. – Ago. 2025 · 3 meses</time>
+            <h3 class="tl-role">Support Staff — Operaciones</h3>
+            <p class="tl-company">Camp Westmont</p>
+            <p class="tl-location">📍 Pennsylvania, EE.UU.</p>
+          </div>
+        </article>
+
+        <article class="tl-h-item">
+          <div class="tl-h-dot-row"><div class="tl-h-dot"></div><div class="tl-h-line"></div></div>
+          <div class="tl-h-card">
+            <div class="tl-badge tl-edu">Educación</div>
+            <time class="tl-date">Ago. 2023 – Ago. 2028</time>
+            <h3 class="tl-role">Ingeniería Industrial</h3>
+            <p class="tl-company">ITP · TecNM</p>
+            <p class="tl-location">📍 Puebla, México · 6.° Semestre</p>
+          </div>
+        </article>
+
+        <article class="tl-h-item">
+          <div class="tl-h-dot-row"><div class="tl-h-dot"></div><div class="tl-h-line"></div></div>
+          <div class="tl-h-card">
+            <div class="tl-badge tl-work">Trabajo</div>
+            <time class="tl-date">Jun. – Ago. 2023 · 3 meses</time>
+            <h3 class="tl-role">Operador de Producción</h3>
+            <p class="tl-company">D'Frucox</p>
+            <p class="tl-location">📍 Xochiapulco, Puebla</p>
+          </div>
+        </article>
+
+      </div>
+      <button class="tl-btn tl-next" aria-label="Siguiente">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section">
+    <div class="eyebrow reveal">Proyectos</div>
+    <h2 class="section-title reveal delay-1">Proyectos<br><em>Destacados</em></h2>
+    <div class="wallet-wrap">
+      <p class="wallet-hint-txt" id="wHint">👆 Toca una tarjeta para ver el proyecto</p>
+      <div class="wallet-stack" id="wStack">
+
+        <div class="w-card" data-idx="6" style="--cg:linear-gradient(135deg,#1a0a2e 0%,#2d1a50 50%,#12061e 100%)">
+          <div class="wc-bg"></div><div class="wc-shine"></div>
+          <div class="wc-body">
+            <div class="wc-top"><span class="wc-num">07</span><span class="wc-year">2026</span></div>
+            <h3 class="wc-name">Base de Datos</h3>
+            <span class="wc-icon">🗄️</span>
+            <div class="wc-tags"><span class="wc-tag">SQL</span><span class="wc-tag">MySQL</span><span class="wc-tag">Excel</span></div>
+          </div>
+        </div>
+
+        <div class="w-card" data-idx="5" style="--cg:linear-gradient(135deg,#002a1e 0%,#004a36 50%,#001e14 100%)">
+          <div class="wc-bg"></div><div class="wc-shine"></div>
+          <div class="wc-body">
+            <div class="wc-top"><span class="wc-num">06</span><span class="wc-year">2026</span></div>
+            <h3 class="wc-name">Control de Facturas y Ventas</h3>
+            <span class="wc-icon">🧾</span>
+            <div class="wc-tags"><span class="wc-tag">Excel</span><span class="wc-tag">JavaScript</span><span class="wc-tag">SQL</span></div>
+          </div>
+        </div>
+
+        <div class="w-card" data-idx="4" style="--cg:linear-gradient(135deg,#2d0a2e 0%,#4a1a50 50%,#1e0520 100%)">
+          <div class="wc-bg"></div><div class="wc-shine"></div>
+          <div class="wc-body">
+            <div class="wc-top"><span class="wc-num">05</span><span class="wc-year">2026</span></div>
+            <h3 class="wc-name">Tarjetas Publicitarias</h3>
+            <span class="wc-icon">🎨</span>
+            <div class="wc-tags"><span class="wc-tag">Diseño</span><span class="wc-tag">Canva</span><span class="wc-tag">Illustrator</span></div>
+          </div>
+        </div>
+
+        <div class="w-card" data-idx="3" style="--cg:linear-gradient(135deg,#2a1200 0%,#4a2800 50%,#1e0e00 100%)">
+          <div class="wc-bg"></div><div class="wc-shine"></div>
+          <div class="wc-body">
+            <div class="wc-top"><span class="wc-num">04</span><span class="wc-year">2026</span></div>
+            <h3 class="wc-name">DOSLEG — Sitio Web</h3>
+            <span class="wc-icon">🌐</span>
+            <div class="wc-tags"><span class="wc-tag">HTML</span><span class="wc-tag">CSS</span><span class="wc-tag">JavaScript</span></div>
+          </div>
+        </div>
+
+        <div class="w-card" data-idx="2" style="--cg:linear-gradient(135deg,#1e1040 0%,#2d1b69 50%,#1a0e50 100%)">
+          <div class="wc-bg"></div><div class="wc-shine"></div>
+          <div class="wc-body">
+            <div class="wc-top"><span class="wc-num">03</span><span class="wc-year">2026</span></div>
+            <h3 class="wc-name">Portafolio Personal</h3>
+            <span class="wc-icon">🌐</span>
+            <div class="wc-tags"><span class="wc-tag">HTML</span><span class="wc-tag">CSS</span><span class="wc-tag">JS</span></div>
+          </div>
+        </div>
+
+        <div class="w-card" data-idx="1" style="--cg:linear-gradient(135deg,#0d2b24 0%,#1a4a3c 50%,#0a2018 100%)">
+          <div class="wc-bg"></div><div class="wc-shine"></div>
+          <div class="wc-body">
+            <div class="wc-top"><span class="wc-num">02</span><span class="wc-year">2026</span></div>
+            <h3 class="wc-name">Sistema de Gestión Comercial</h3>
+            <span class="wc-icon">🏪</span>
+            <div class="wc-tags"><span class="wc-tag">React</span><span class="wc-tag">Node.js</span><span class="wc-tag">SQL</span></div>
+          </div>
+        </div>
+
+        <div class="w-card" data-idx="0" style="--cg:linear-gradient(135deg,#1e3a5f 0%,#0d1f3c 50%,#162d4e 100%)">
+          <div class="wc-bg"></div><div class="wc-shine"></div>
+          <div class="wc-body">
+            <div class="wc-top"><span class="wc-num">01</span><span class="wc-year">2026</span></div>
+            <h3 class="wc-name">Software de Inventarios</h3>
+            <span class="wc-icon">📦</span>
+            <div class="wc-tags"><span class="wc-tag">JavaScript</span><span class="wc-tag">Node.js</span><span class="wc-tag">SQL</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="w-info" id="wInfo">
+        <div class="wi-counter" id="wiCounter">01 / 03</div>
+        <h3 class="wi-title" id="wiTitle">—</h3>
+        <p class="wi-desc" id="wiDesc">—</p>
+        <div class="wi-tags" id="wiTags"></div>
+        <button class="wi-back" id="wiBack">↩ Volver a tarjetas</button>
+      </div>
+
+      <div class="w-dots" id="wDots">
+        <button class="wd active" data-target="0"></button>
+        <button class="wd" data-target="1"></button>
+        <button class="wd" data-target="2"></button>
+        <button class="wd" data-target="3"></button>
+        <button class="wd" data-target="4"></button>
+        <button class="wd" data-target="5"></button>
+        <button class="wd" data-target="6"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section">
+    <div class="contact-inner">
+      <div class="eyebrow reveal" style="justify-content:center">Hablemos</div>
+      <h2 class="contact-title reveal delay-1">¿Tienes un<br><em>Proyecto?</em></h2>
+      <p class="contact-sub reveal delay-2">Cuéntame tu idea. Construimos algo que funcione de verdad — sin complicaciones.</p>
+      <div class="contact-btns reveal delay-3">
+        <a href="https://wa.me/522331353406?text=Hola%20Ruben%2C%20vi%20tu%20portafolio%20y%20me%20interesa%20platicarte%20sobre%20un%20proyecto." class="btn btn-primary" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.135 1.535 5.879L.057 23.535a.75.75 0 00.916.938l5.85-1.53A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.721 9.721 0 01-4.953-1.355l-.355-.21-3.674.962.98-3.584-.23-.368A9.722 9.722 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Escribir por WhatsApp
+        </a>
+        <a href="mailto:ruben.dinorin8@gmail.com" class="btn btn-outline">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Correo
+        </a>
+      </div>
+      <div class="contact-socials reveal delay-4">
+        <a href="https://www.linkedin.com/in/luis-dinorin-rub%C3%A9n-4886343b8/" class="social-link" title="LinkedIn" target="_blank" rel="noopener">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+        <a href="https://github.com/ruben-luis" class="social-link" title="GitHub" target="_blank" rel="noopener">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        </a>
+        <a href="mailto:ruben.dinorin8@gmail.com" class="social-link" title="Email">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Luis Dinorin Rubén</span>
+  <span>Puebla, México · Remoto OK</span>
+  <span>ruben.dinorin8@gmail.com</span>
+</footer>
+
+<script>
+(function(){
+  const el=document.getElementById('clock');
+  const tick=()=>{el.textContent=new Date().toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit',hour12:false})+' · MX'};
+  tick();setInterval(tick,1000);
+})();
+
+(function(){
+  const skills=[
+    'Excel','Minitab','AutoCAD','SolidWorks','AMPL','Python','SQL','Visual Code',
+    'Concord','Node.js','HTML / CSS','JavaScript','Microsoft Office',
+    'Lean Manufacturing','Six Sigma','Mejora Continua','Supply Chain',
+    'Calidad Industrial','Optimización','Inv. de Operaciones','IA Tools','Logística'
+  ];
+  function build(id,arr){
+    const el=document.getElementById(id);
+    const d=[...arr,...arr];
+    el.innerHTML=d.map(s=>`<span class="mq-item">${s}<span class="mq-sep">✦</span></span>`).join('');
+  }
+  build('mq1',skills);
+  build('mq2',[...skills].reverse());
+})();
+
+(function(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+  },{threshold:.1,rootMargin:'-50px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+(function(){
+  const wrap=document.querySelector('.hero-photo-wrap');
+  const nameL=document.querySelector('.hero-name-left');
+  const nameR=document.querySelector('.hero-name-right');
+  const glow=document.querySelector('.hero-glow');
+  let scrollY=0;
+  function update(){
+    const y=scrollY;
+    if(wrap) wrap.style.marginTop=(-y*.18)+'px';
+    if(nameL) nameL.style.transform=`translateX(${-y*.05}px)`;
+    if(nameR) nameR.style.transform=`translateX(${y*.05}px)`;
+    if(glow) glow.style.transform=`translateY(${-y*.08}px) scale(${1+y*.0004})`;
+  }
+  window.addEventListener('scroll',()=>{scrollY=window.scrollY;update();},{passive:true});
+})();
+
+(function(){
+  const glow=document.querySelector('.hero-glow');
+  document.getElementById('hero').addEventListener('mousemove',e=>{
+    const x=e.clientX-250,y=e.clientY-250;
+    glow.style.left=x+'px';glow.style.top=y+'px';
+  });
+})();
+
+(function(){
+  const DATA=[
+    {
+      num:'01',title:'Software de Inventarios',
+      desc:'Sistema de control de inventarios, facturación y gestión operativa a medida para pequeña empresa. Automatizó procesos manuales y redujo errores en el registro de productos.',
+      tags:['JavaScript','Node.js','SQL','HTML/CSS'],
+      live:'#',github:'#'
+    },
+    {
+      num:'02',title:'Sistema de Gestión Comercial',
+      desc:'Software a medida para negocio local con módulos de ventas, clientes y reportes. Gestión completa del proyecto desde requerimientos hasta soporte post-entrega.',
+      tags:['React','Node.js','SQL'],
+      live:'#',github:'#'
+    },
+    {
+      num:'03',title:'Portafolio Personal',
+      desc:'Este sitio. HTML puro sin dependencias. Diseño oscuro, animaciones de scroll, foto circular con parallax, tarjetas wallet y timeline de experiencia.',
+      tags:['HTML','CSS','JavaScript'],
+      live:'#',github:'#'
+    },
+    {
+      num:'04',title:'DOSLEG — Sitio Web',
+      desc:'Sitio web corporativo para la empresa DOSLEG. Presentación de servicios, identidad visual y formulario de contacto. Diseño responsivo adaptado a su imagen de marca.',
+      tags:['HTML','CSS','JavaScript'],
+      live:'#',github:'#'
+    },
+    {
+      num:'05',title:'Tarjetas Publicitarias',
+      desc:'Diseño de tarjetas publicitarias digitales e impresas para promoción de negocios locales. Identidad visual, tipografía y composición gráfica orientada a conversión.',
+      tags:['Diseño','Canva','Illustrator'],
+      live:'#',github:'#'
+    },
+    {
+      num:'06',title:'Control de Facturas y Ventas',
+      desc:'Sistema de registro y control de facturación y ventas para pequeña empresa. Reportes automáticos, seguimiento de ingresos y resumen de operaciones por periodo.',
+      tags:['Excel','JavaScript','SQL'],
+      live:'#',github:'#'
+    },
+    {
+      num:'07',title:'Base de Datos',
+      desc:'Diseño e implementación de base de datos relacional para gestión de información empresarial. Consultas optimizadas, reportes y estructura escalable.',
+      tags:['SQL','MySQL','Excel'],
+      live:'#',github:'#'
+    }
+  ];
+
+  const HEIGHTS={stacked:265,selected:260};
+  function getFannedH(){return window.innerWidth<=600?790:960;}
+  const stack=document.getElementById('wStack');
+  const cards=Array.from(stack.querySelectorAll('.w-card'));
+  const hint=document.getElementById('wHint');
+  const info=document.getElementById('wInfo');
+  const wiCnt=document.getElementById('wiCounter');
+  const wiTtl=document.getElementById('wiTitle');
+  const wiDesc=document.getElementById('wiDesc');
+  const wiTags=document.getElementById('wiTags');
+  const wiBack=document.getElementById('wiBack');
+  const dots=document.querySelectorAll('.wd');
+  let state='stacked',busy=false;
+
+  function setHeight(h){stack.style.height=h+'px'}
+  function syncDots(i){dots.forEach(d=>d.classList.toggle('active',+d.dataset.target===i))}
+
+  function toStacked(){
+    if(busy)return;busy=true;
+    info.classList.remove('visible');
+    cards.forEach(c=>c.classList.remove('ws-active','ws-rest'));
+    stack.className='wallet-stack';setHeight(HEIGHTS.stacked);
+    hint.classList.remove('hidden');state='stacked';syncDots(0);
+    setTimeout(()=>busy=false,650);
+  }
+  function toFanned(){
+    if(busy)return;busy=true;
+    info.classList.remove('visible');
+    cards.forEach(c=>c.classList.remove('ws-active','ws-rest'));
+    stack.className='wallet-stack ws-fanned';setHeight(getFannedH());
+    hint.classList.add('hidden');state='fanned';
+    setTimeout(()=>busy=false,650);
+  }
+  function toSelected(idx){
+    if(busy)return;busy=true;
+    const d=DATA[idx];
+    wiCnt.textContent=d.num+' / 0'+DATA.length;
+    wiTtl.textContent=d.title;wiDesc.textContent=d.desc;
+    wiTags.innerHTML=d.tags.map(t=>`<span class="wi-tag">${t}</span>`).join('');
+    syncDots(idx);
+    stack.className='wallet-stack ws-selected';
+    cards.forEach(c=>{
+      const ci=+c.dataset.idx;
+      c.classList.remove('ws-active','ws-rest');
+      c.classList.add(ci===idx?'ws-active':'ws-rest');
+    });
+    setHeight(HEIGHTS.selected);state='selected';
+    setTimeout(()=>{info.classList.add('visible');busy=false;info.scrollIntoView({behavior:'smooth',block:'nearest'});},400);
+  }
+
+  stack.addEventListener('click',e=>{
+    if(busy)return;
+    if(state==='stacked'){toFanned();return;}
+    if(state==='fanned'){
+      const card=e.target.closest('.w-card');
+      if(card)toSelected(+card.dataset.idx);else toStacked();
+    }
+    if(state==='selected'){
+      const card=e.target.closest('.w-card');
+      if(card&&card.classList.contains('ws-active')){
+        info.classList.remove('visible');
+        setTimeout(()=>toFanned(),300);
+      }
+    }
+  });
+  wiBack.addEventListener('click',()=>{
+    if(busy)return;
+    info.classList.remove('visible');
+    setTimeout(()=>toFanned(),300);
+  });
+  dots.forEach(d=>{
+    d.addEventListener('click',()=>{
+      const t=+d.dataset.target;
+      if(state==='stacked'){toFanned();setTimeout(()=>toSelected(t),700);}
+      else if(state==='fanned'){toSelected(t);}
+      else{info.classList.remove('visible');setTimeout(()=>toSelected(t),300);}
+    });
+  });
+
+  setHeight(HEIGHTS.stacked);syncDots(0);
+})();
+
+/* ── TIMELINE SCROLL ARROWS ── */
+(function(){
+  const track=document.getElementById('tlTrack');
+  if(!track)return;
+  const page=()=>track.clientWidth;
+  document.querySelector('.tl-prev').addEventListener('click',()=>track.scrollBy({left:-page(),behavior:'smooth'}));
+  document.querySelector('.tl-next').addEventListener('click',()=>track.scrollBy({left:page(),behavior:'smooth'}));
+})();
+
+/* ── SERVICES 3D TILT + BAR ANIMATION ── */
+(function(){
+  document.querySelectorAll('.svc-card').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;
+      const y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(900px) rotateY(${x*14}deg) rotateX(${-y*10}deg) translateZ(6px)`;
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transform='';});
+  });
+})();
+
+/* ── HAMBURGER MENU ── */
+(function(){
+  const btn=document.getElementById('hamBtn');
+  const nav=document.getElementById('mobNav');
+  if(!btn||!nav)return;
+  function close(){
+    nav.classList.remove('open');
+    btn.classList.remove('open');
+    nav.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  btn.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    btn.classList.toggle('open',open);
+    nav.setAttribute('aria-hidden',String(!open));
+    document.body.style.overflow=open?'hidden':'';
+  });
+  nav.querySelectorAll('.mob-nav-link').forEach(a=>a.addEventListener('click',()=>{
+    close();
+    const id=a.getAttribute('href').slice(1);
+    const el=document.getElementById(id);
+    if(el)setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),50);
+  }));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+
+/* ── SIDE NAV ── */
+(function(){
+  const SECTIONS=[
+    {id:'hero',      label:'Inicio'},
+    {id:'about',     label:'Sobre mí'},
+    {id:'services',  label:'Servicios'},
+    {id:'experience',label:'Experiencia'},
+    {id:'projects',  label:'Proyectos'},
+    {id:'contact',   label:'Contacto'}
+  ];
+  const nav=document.createElement('nav');
+  nav.className='side-nav';
+  SECTIONS.forEach(s=>{
+    const a=document.createElement('a');
+    a.className='sn-item';a.href='#'+s.id;
+    a.innerHTML=`<div class="sn-dot"></div><span class="sn-label">${s.label}</span>`;
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      document.getElementById(s.id).scrollIntoView({behavior:'smooth'});
+    });
+    nav.appendChild(a);
+  });
+  document.body.appendChild(nav);
+  const items=nav.querySelectorAll('.sn-item');
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting)
+        items.forEach(it=>it.classList.toggle('active',it.getAttribute('href')==='#'+e.target.id));
+    });
+  },{rootMargin:'-40% 0px -40% 0px'});
+  SECTIONS.forEach(s=>{const el=document.getElementById(s.id);if(el)io.observe(el);});
+})();
+</script>
+</body>
+</html>
