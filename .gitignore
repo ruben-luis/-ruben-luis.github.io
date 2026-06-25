@@ -1,4 +1,7 @@
 screenshots/*.png
 screenshots/final/
 screenshots/mask.js
+screenshots/bakinglove/*-raw.png
+screenshots/bakinglove/*-top.png
 skills-lock.json
+node_modules/
