@@ -559,10 +559,11 @@ nav{
 .wi-tag{padding:.22rem .75rem;border-radius:100px;background:var(--w05);border:1px solid var(--w08);color:rgba(255,255,255,.35);font-size:.7rem}
 .wi-links{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.4rem}
 .wi-gallery{
-  display:flex;gap:.55rem;overflow-x:auto;padding:.2rem 0 .6rem;
+  display:none;gap:.55rem;overflow-x:auto;padding:.2rem 0 .6rem;
   scrollbar-width:none;-ms-overflow-style:none;
   justify-content:center;flex-wrap:wrap;margin-bottom:1rem;max-width:90vw;
 }
+.wi-gallery.open{display:flex}
 .wi-gallery::-webkit-scrollbar{display:none}
 .wi-gallery-img{
   width:155px;height:95px;border-radius:.65rem;object-fit:cover;object-position:top left;
@@ -570,6 +571,40 @@ nav{
   transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer;
 }
 .wi-gallery-img:hover{transform:scale(1.05);border-color:rgba(232,255,0,.35);box-shadow:0 8px 24px rgba(0,0,0,.55)}
+.wi-gallery-btn{
+  display:none;align-items:center;gap:.45rem;
+  padding:.45rem 1.3rem;border-radius:100px;
+  border:1px solid var(--w15);background:transparent;
+  font-family:'Kanit',sans-serif;font-size:.7rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--w50);
+  cursor:pointer;transition:all .25s;margin-bottom:1.1rem;
+}
+.wi-gallery-btn.shown{display:inline-flex}
+.wi-gallery-btn:hover,.wi-gallery-btn.open{border-color:var(--accent);color:var(--accent)}
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.95);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s cubic-bezier(.22,1,.36,1);
+}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox-img{
+  max-width:100vw;max-height:100svh;width:auto;height:auto;
+  object-fit:contain;border-radius:.4rem;
+  transform:scale(.92);transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+.lightbox.open .lightbox-img{transform:scale(1)}
+.lightbox-close{
+  position:absolute;top:1rem;right:1rem;
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+  color:#fff;font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,border-color .2s,color .2s;
+}
+.lightbox-close:hover{background:rgba(232,255,0,.15);border-color:var(--accent);color:var(--accent)}
 .wi-back{
   background:none;border:none;cursor:pointer;
   color:rgba(255,255,255,.3);font-family:'Kanit',sans-serif;
@@ -1138,6 +1173,7 @@ footer{
         <h3 class="wi-title" id="wiTitle">—</h3>
         <p class="wi-desc" id="wiDesc">—</p>
         <div class="wi-tags" id="wiTags"></div>
+        <button class="wi-gallery-btn" id="wiGalleryBtn">📸 Ver más</button>
         <div class="wi-gallery" id="wiGallery"></div>
         <button class="wi-back" id="wiBack">↩ Volver a tarjetas</button>
       </div>
@@ -1328,7 +1364,10 @@ footer{
   function toStacked(){
     if(busy)return;busy=true;
     info.classList.remove('visible');
-    document.getElementById('wiGallery').innerHTML='';
+    const wg=document.getElementById('wiGallery');
+    wg.innerHTML='';wg.classList.remove('open');
+    const wb=document.getElementById('wiGalleryBtn');
+    wb.classList.remove('shown','open');
     cards.forEach(c=>c.classList.remove('ws-active','ws-rest'));
     stack.className='wallet-stack';setHeight(HEIGHTS.stacked);
     hint.classList.remove('hidden');state='stacked';syncDots(0);
@@ -1349,7 +1388,17 @@ footer{
     wiTtl.textContent=d.title;wiDesc.textContent=d.desc;
     wiTags.innerHTML=d.tags.map(t=>`<span class="wi-tag">${t}</span>`).join('');
     const wiGallery=document.getElementById('wiGallery');
-    wiGallery.innerHTML=d.images?d.images.map(src=>`<img class="wi-gallery-img" src="${src}" alt="${d.title}" loading="lazy"/>`).join(''):'';
+    const wiGalleryBtn=document.getElementById('wiGalleryBtn');
+    wiGallery.classList.remove('open');
+    wiGalleryBtn.classList.remove('open');
+    if(d.images){
+      wiGallery.innerHTML=d.images.map(src=>`<img class="wi-gallery-img" src="${src}" alt="${d.title}" loading="lazy"/>`).join('');
+      wiGalleryBtn.classList.add('shown');
+      wiGalleryBtn.textContent='📸 Ver más';
+    } else {
+      wiGallery.innerHTML='';
+      wiGalleryBtn.classList.remove('shown');
+    }
     syncDots(idx);
     stack.className='wallet-stack ws-selected';
     cards.forEach(c=>{
@@ -1380,6 +1429,14 @@ footer{
     if(busy)return;
     info.classList.remove('visible');
     setTimeout(()=>toFanned(),300);
+  });
+  document.getElementById('wiGalleryBtn').addEventListener('click',()=>{
+    const g=document.getElementById('wiGallery');
+    const btn=document.getElementById('wiGalleryBtn');
+    const opening=!g.classList.contains('open');
+    g.classList.toggle('open',opening);
+    btn.classList.toggle('open',opening);
+    btn.textContent=opening?'✕ Cerrar':'📸 Ver más';
   });
   dots.forEach(d=>{
     d.addEventListener('click',()=>{
@@ -1473,6 +1530,23 @@ footer{
   },{rootMargin:'-40% 0px -40% 0px'});
   SECTIONS.forEach(s=>{const el=document.getElementById(s.id);if(el)io.observe(el);});
 })();
+
+/* ── LIGHTBOX ── */
+(function(){
+  const lb=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lightboxImg');
+  function open(src,alt){lbImg.src=src;lbImg.alt=alt;lb.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';setTimeout(()=>{lbImg.src='';},350);}
+  document.addEventListener('click',e=>{if(e.target.classList.contains('wi-gallery-img'))open(e.target.src,e.target.alt);});
+  document.getElementById('lightboxClose').addEventListener('click',close);
+  lb.addEventListener('click',e=>{if(e.target===lb)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
 </script>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <img class="lightbox-img" id="lightboxImg" src="" alt=""/>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
+</div>
 </body>
 </html>
