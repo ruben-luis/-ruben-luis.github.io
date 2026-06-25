@@ -510,6 +510,7 @@ nav{
   font-size:.6rem;font-weight:500;color:rgba(255,255,255,.7);
 }
 /* stacked initial positions */
+.w-card[data-idx="7"]{transform:translateY(-26px) scale(.76);z-index:0;opacity:.10}
 .w-card[data-idx="6"]{transform:translateY(-22px) scale(.78);z-index:0;opacity:.18}
 .w-card[data-idx="5"]{transform:translateY(-18px) scale(.80);z-index:0;opacity:.28}
 .w-card[data-idx="4"]{transform:translateY(-14px) scale(.83);z-index:0;opacity:.4}
@@ -517,22 +518,24 @@ nav{
 .w-card[data-idx="2"]{transform:translateY(0)     scale(.90);z-index:1;opacity:.7}
 .w-card[data-idx="1"]{transform:translateY(14px)  scale(.95);z-index:2;opacity:.85}
 .w-card[data-idx="0"]{transform:translateY(28px)  scale(1);  z-index:3;opacity:1}
-/* fanned — 120px gap, 7 cards */
-.ws-fanned .w-card[data-idx="6"]{transform:translateY(0px)   scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="5"]{transform:translateY(120px) scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="4"]{transform:translateY(240px) scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="3"]{transform:translateY(360px) scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="2"]{transform:translateY(480px) scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="1"]{transform:translateY(600px) scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="0"]{transform:translateY(720px) scale(1);opacity:1}
+/* fanned — 120px gap, 8 cards */
+.ws-fanned .w-card[data-idx="7"]{transform:translateY(0px)   scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="6"]{transform:translateY(120px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="5"]{transform:translateY(240px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="4"]{transform:translateY(360px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="3"]{transform:translateY(480px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="2"]{transform:translateY(600px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="1"]{transform:translateY(720px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="0"]{transform:translateY(840px) scale(1);opacity:1}
 /* hover in fanned */
-.ws-fanned .w-card[data-idx="6"]:hover{transform:translateY(-6px)  scale(1.015) !important}
-.ws-fanned .w-card[data-idx="5"]:hover{transform:translateY(114px) scale(1.015) !important}
-.ws-fanned .w-card[data-idx="4"]:hover{transform:translateY(234px) scale(1.015) !important}
-.ws-fanned .w-card[data-idx="3"]:hover{transform:translateY(354px) scale(1.015) !important}
-.ws-fanned .w-card[data-idx="2"]:hover{transform:translateY(474px) scale(1.015) !important}
-.ws-fanned .w-card[data-idx="1"]:hover{transform:translateY(594px) scale(1.015) !important}
-.ws-fanned .w-card[data-idx="0"]:hover{transform:translateY(714px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="7"]:hover{transform:translateY(-6px)  scale(1.015) !important}
+.ws-fanned .w-card[data-idx="6"]:hover{transform:translateY(114px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="5"]:hover{transform:translateY(234px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="4"]:hover{transform:translateY(354px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="3"]:hover{transform:translateY(474px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="2"]:hover{transform:translateY(594px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="1"]:hover{transform:translateY(714px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="0"]:hover{transform:translateY(834px) scale(1.015) !important}
 .ws-selected .w-card.ws-rest{
   opacity:0;pointer-events:none;visibility:hidden;
   transform:scale(.92);transition:opacity .35s,transform .35s,visibility .35s;
@@ -555,6 +558,18 @@ nav{
 .wi-tags{display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.6rem}
 .wi-tag{padding:.22rem .75rem;border-radius:100px;background:var(--w05);border:1px solid var(--w08);color:rgba(255,255,255,.35);font-size:.7rem}
 .wi-links{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.4rem}
+.wi-gallery{
+  display:flex;gap:.55rem;overflow-x:auto;padding:.2rem 0 .6rem;
+  scrollbar-width:none;-ms-overflow-style:none;
+  justify-content:center;flex-wrap:wrap;margin-bottom:1rem;max-width:90vw;
+}
+.wi-gallery::-webkit-scrollbar{display:none}
+.wi-gallery-img{
+  width:155px;height:95px;border-radius:.65rem;object-fit:cover;object-position:top left;
+  border:1px solid rgba(255,255,255,.1);flex-shrink:0;
+  transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer;
+}
+.wi-gallery-img:hover{transform:scale(1.05);border-color:rgba(232,255,0,.35);box-shadow:0 8px 24px rgba(0,0,0,.55)}
 .wi-back{
   background:none;border:none;cursor:pointer;
   color:rgba(255,255,255,.3);font-family:'Kanit',sans-serif;
@@ -757,20 +772,22 @@ footer{
 }
 @media(max-width:600px){
   .wallet-stack{height:240px}
-  .ws-fanned .w-card[data-idx="6"]{transform:translateY(0px)   scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="5"]{transform:translateY(90px)  scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="4"]{transform:translateY(180px) scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="3"]{transform:translateY(270px) scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="2"]{transform:translateY(360px) scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="1"]{transform:translateY(450px) scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="0"]{transform:translateY(540px) scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="6"]:hover{transform:translateY(-6px)  scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="5"]:hover{transform:translateY(84px)  scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="4"]:hover{transform:translateY(174px) scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="3"]:hover{transform:translateY(264px) scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="2"]:hover{transform:translateY(354px) scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="1"]:hover{transform:translateY(444px) scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="0"]:hover{transform:translateY(534px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="7"]{transform:translateY(0px)   scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="6"]{transform:translateY(90px)  scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="5"]{transform:translateY(180px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="4"]{transform:translateY(270px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="3"]{transform:translateY(360px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="2"]{transform:translateY(450px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="1"]{transform:translateY(540px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="0"]{transform:translateY(630px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="7"]:hover{transform:translateY(-6px)  scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="6"]:hover{transform:translateY(84px)  scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="5"]:hover{transform:translateY(174px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="4"]:hover{transform:translateY(264px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="3"]:hover{transform:translateY(354px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="2"]:hover{transform:translateY(444px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="1"]:hover{transform:translateY(534px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="0"]:hover{transform:translateY(624px) scale(1.015) !important}
   .ws-selected .w-card.ws-active{transform:translateY(0) scale(1.01)}
 }
 </style>
@@ -1034,6 +1051,16 @@ footer{
       <p class="wallet-hint-txt" id="wHint">👆 Toca una tarjeta para ver el proyecto</p>
       <div class="wallet-stack" id="wStack">
 
+        <div class="w-card" data-idx="7" style="--cg:linear-gradient(135deg,#2a0d1e 0%,#5c1535 50%,#1a0812 100%)">
+          <div class="wc-bg"></div><div class="wc-shine"></div>
+          <div class="wc-body">
+            <div class="wc-top"><span class="wc-num">08</span><span class="wc-year">2026</span></div>
+            <h3 class="wc-name">Bakinglove — Panel</h3>
+            <span class="wc-icon">🧁</span>
+            <div class="wc-tags"><span class="wc-tag">Next.js</span><span class="wc-tag">React</span><span class="wc-tag">localStorage</span></div>
+          </div>
+        </div>
+
         <div class="w-card" data-idx="6" style="--cg:linear-gradient(135deg,#1a0a2e 0%,#2d1a50 50%,#12061e 100%)">
           <div class="wc-bg"></div><div class="wc-shine"></div>
           <div class="wc-body">
@@ -1111,6 +1138,7 @@ footer{
         <h3 class="wi-title" id="wiTitle">—</h3>
         <p class="wi-desc" id="wiDesc">—</p>
         <div class="wi-tags" id="wiTags"></div>
+        <div class="wi-gallery" id="wiGallery"></div>
         <button class="wi-back" id="wiBack">↩ Volver a tarjetas</button>
       </div>
 
@@ -1122,6 +1150,7 @@ footer{
         <button class="wd" data-target="4"></button>
         <button class="wd" data-target="5"></button>
         <button class="wd" data-target="6"></button>
+        <button class="wd" data-target="7"></button>
       </div>
     </div>
   </div>
@@ -1261,11 +1290,26 @@ footer{
       desc:'Diseño e implementación de base de datos relacional para gestión de información empresarial. Consultas optimizadas, reportes y estructura escalable.',
       tags:['SQL','MySQL','Excel'],
       live:'#',github:'#'
+    },
+    {
+      num:'08',title:'Bakinglove — Panel de Control',
+      desc:'Sistema de gestión interna para negocio de repostería. Módulos de ventas, ingresos, gastos, calendario de entregas y control de sucursal. Diseño mobile-first con acceso por NIP.',
+      tags:['Next.js','React','JavaScript','localStorage'],
+      live:'#',github:'#',
+      images:[
+        'screenshots/bakinglove/01-dashboard.png',
+        'screenshots/bakinglove/02-dashboard-modulos.png',
+        'screenshots/bakinglove/03-nota-de-venta.png',
+        'screenshots/bakinglove/04-concentrado-ingresos.png',
+        'screenshots/bakinglove/05-concentrado-gastos.png',
+        'screenshots/bakinglove/06-calendario-entregas.png',
+        'screenshots/bakinglove/07-control-san-ramon.png'
+      ]
     }
   ];
 
-  const HEIGHTS={stacked:265,selected:260};
-  function getFannedH(){return window.innerWidth<=600?790:960;}
+  const HEIGHTS={stacked:275,selected:260};
+  function getFannedH(){return window.innerWidth<=600?900:1080;}
   const stack=document.getElementById('wStack');
   const cards=Array.from(stack.querySelectorAll('.w-card'));
   const hint=document.getElementById('wHint');
@@ -1284,6 +1328,7 @@ footer{
   function toStacked(){
     if(busy)return;busy=true;
     info.classList.remove('visible');
+    document.getElementById('wiGallery').innerHTML='';
     cards.forEach(c=>c.classList.remove('ws-active','ws-rest'));
     stack.className='wallet-stack';setHeight(HEIGHTS.stacked);
     hint.classList.remove('hidden');state='stacked';syncDots(0);
@@ -1303,6 +1348,8 @@ footer{
     wiCnt.textContent=d.num+' / 0'+DATA.length;
     wiTtl.textContent=d.title;wiDesc.textContent=d.desc;
     wiTags.innerHTML=d.tags.map(t=>`<span class="wi-tag">${t}</span>`).join('');
+    const wiGallery=document.getElementById('wiGallery');
+    wiGallery.innerHTML=d.images?d.images.map(src=>`<img class="wi-gallery-img" src="${src}" alt="${d.title}" loading="lazy"/>`).join(''):'';
     syncDots(idx);
     stack.className='wallet-stack ws-selected';
     cards.forEach(c=>{

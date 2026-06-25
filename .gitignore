@@ -1,2 +1,4 @@
-screenshots/
+screenshots/*.png
+screenshots/final/
+screenshots/mask.js
 skills-lock.json
