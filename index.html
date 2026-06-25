@@ -510,6 +510,7 @@ nav{
   font-size:.6rem;font-weight:500;color:rgba(255,255,255,.7);
 }
 /* stacked initial positions */
+.w-card[data-idx="8"]{transform:translateY(-30px) scale(.73);z-index:0;opacity:.06}
 .w-card[data-idx="7"]{transform:translateY(-26px) scale(.76);z-index:0;opacity:.10}
 .w-card[data-idx="6"]{transform:translateY(-22px) scale(.78);z-index:0;opacity:.18}
 .w-card[data-idx="5"]{transform:translateY(-18px) scale(.80);z-index:0;opacity:.28}
@@ -518,24 +519,26 @@ nav{
 .w-card[data-idx="2"]{transform:translateY(0)     scale(.90);z-index:1;opacity:.7}
 .w-card[data-idx="1"]{transform:translateY(14px)  scale(.95);z-index:2;opacity:.85}
 .w-card[data-idx="0"]{transform:translateY(28px)  scale(1);  z-index:3;opacity:1}
-/* fanned — 120px gap, 8 cards */
-.ws-fanned .w-card[data-idx="7"]{transform:translateY(0px)   scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="6"]{transform:translateY(120px) scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="5"]{transform:translateY(240px) scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="4"]{transform:translateY(360px) scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="3"]{transform:translateY(480px) scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="2"]{transform:translateY(600px) scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="1"]{transform:translateY(720px) scale(1);opacity:1}
-.ws-fanned .w-card[data-idx="0"]{transform:translateY(840px) scale(1);opacity:1}
+/* fanned — 120px gap, 9 cards */
+.ws-fanned .w-card[data-idx="8"]{transform:translateY(0px)   scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="7"]{transform:translateY(120px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="6"]{transform:translateY(240px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="5"]{transform:translateY(360px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="4"]{transform:translateY(480px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="3"]{transform:translateY(600px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="2"]{transform:translateY(720px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="1"]{transform:translateY(840px) scale(1);opacity:1}
+.ws-fanned .w-card[data-idx="0"]{transform:translateY(960px) scale(1);opacity:1}
 /* hover in fanned */
-.ws-fanned .w-card[data-idx="7"]:hover{transform:translateY(-6px)  scale(1.015) !important}
-.ws-fanned .w-card[data-idx="6"]:hover{transform:translateY(114px) scale(1.015) !important}
-.ws-fanned .w-card[data-idx="5"]:hover{transform:translateY(234px) scale(1.015) !important}
-.ws-fanned .w-card[data-idx="4"]:hover{transform:translateY(354px) scale(1.015) !important}
-.ws-fanned .w-card[data-idx="3"]:hover{transform:translateY(474px) scale(1.015) !important}
-.ws-fanned .w-card[data-idx="2"]:hover{transform:translateY(594px) scale(1.015) !important}
-.ws-fanned .w-card[data-idx="1"]:hover{transform:translateY(714px) scale(1.015) !important}
-.ws-fanned .w-card[data-idx="0"]:hover{transform:translateY(834px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="8"]:hover{transform:translateY(-6px)  scale(1.015) !important}
+.ws-fanned .w-card[data-idx="7"]:hover{transform:translateY(114px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="6"]:hover{transform:translateY(234px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="5"]:hover{transform:translateY(354px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="4"]:hover{transform:translateY(474px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="3"]:hover{transform:translateY(594px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="2"]:hover{transform:translateY(714px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="1"]:hover{transform:translateY(834px) scale(1.015) !important}
+.ws-fanned .w-card[data-idx="0"]:hover{transform:translateY(954px) scale(1.015) !important}
 .ws-selected .w-card.ws-rest{
   opacity:0;pointer-events:none;visibility:hidden;
   transform:scale(.92);transition:opacity .35s,transform .35s,visibility .35s;
@@ -558,6 +561,14 @@ nav{
 .wi-tags{display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin-bottom:1.6rem}
 .wi-tag{padding:.22rem .75rem;border-radius:100px;background:var(--w05);border:1px solid var(--w08);color:rgba(255,255,255,.35);font-size:.7rem}
 .wi-links{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.4rem}
+.wi-link-btn{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.35rem 1.1rem;border-radius:100px;
+  border:1px solid var(--a30);color:var(--accent);
+  font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  transition:background .2s,border-color .2s;
+}
+.wi-link-btn:hover{background:var(--a10);border-color:var(--accent)}
 .wi-gallery{
   display:none;gap:.55rem;overflow-x:auto;padding:.2rem 0 .6rem;
   scrollbar-width:none;-ms-overflow-style:none;
@@ -807,22 +818,24 @@ footer{
 }
 @media(max-width:600px){
   .wallet-stack{height:240px}
-  .ws-fanned .w-card[data-idx="7"]{transform:translateY(0px)   scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="6"]{transform:translateY(90px)  scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="5"]{transform:translateY(180px) scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="4"]{transform:translateY(270px) scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="3"]{transform:translateY(360px) scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="2"]{transform:translateY(450px) scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="1"]{transform:translateY(540px) scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="0"]{transform:translateY(630px) scale(1);opacity:1}
-  .ws-fanned .w-card[data-idx="7"]:hover{transform:translateY(-6px)  scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="6"]:hover{transform:translateY(84px)  scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="5"]:hover{transform:translateY(174px) scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="4"]:hover{transform:translateY(264px) scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="3"]:hover{transform:translateY(354px) scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="2"]:hover{transform:translateY(444px) scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="1"]:hover{transform:translateY(534px) scale(1.015) !important}
-  .ws-fanned .w-card[data-idx="0"]:hover{transform:translateY(624px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="8"]{transform:translateY(0px)   scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="7"]{transform:translateY(90px)  scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="6"]{transform:translateY(180px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="5"]{transform:translateY(270px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="4"]{transform:translateY(360px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="3"]{transform:translateY(450px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="2"]{transform:translateY(540px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="1"]{transform:translateY(630px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="0"]{transform:translateY(720px) scale(1);opacity:1}
+  .ws-fanned .w-card[data-idx="8"]:hover{transform:translateY(-6px)  scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="7"]:hover{transform:translateY(84px)  scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="6"]:hover{transform:translateY(174px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="5"]:hover{transform:translateY(264px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="4"]:hover{transform:translateY(354px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="3"]:hover{transform:translateY(444px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="2"]:hover{transform:translateY(534px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="1"]:hover{transform:translateY(624px) scale(1.015) !important}
+  .ws-fanned .w-card[data-idx="0"]:hover{transform:translateY(714px) scale(1.015) !important}
   .ws-selected .w-card.ws-active{transform:translateY(0) scale(1.01)}
 }
 </style>
@@ -1086,83 +1099,93 @@ footer{
       <p class="wallet-hint-txt" id="wHint">👆 Toca una tarjeta para ver el proyecto</p>
       <div class="wallet-stack" id="wStack">
 
-        <div class="w-card" data-idx="7" style="--cg:linear-gradient(135deg,#2a0d1e 0%,#5c1535 50%,#1a0812 100%)">
+        <div class="w-card" data-idx="8" style="--cg:linear-gradient(135deg,#1a0a2e 0%,#2d1a50 50%,#12061e 100%)">
           <div class="wc-bg"></div><div class="wc-shine"></div>
           <div class="wc-body">
-            <div class="wc-top"><span class="wc-num">08</span><span class="wc-year">2026</span></div>
-            <h3 class="wc-name">Bakinglove — Panel</h3>
-            <span class="wc-icon">🧁</span>
-            <div class="wc-tags"><span class="wc-tag">Next.js</span><span class="wc-tag">React</span><span class="wc-tag">localStorage</span></div>
-          </div>
-        </div>
-
-        <div class="w-card" data-idx="6" style="--cg:linear-gradient(135deg,#1a0a2e 0%,#2d1a50 50%,#12061e 100%)">
-          <div class="wc-bg"></div><div class="wc-shine"></div>
-          <div class="wc-body">
-            <div class="wc-top"><span class="wc-num">07</span><span class="wc-year">2026</span></div>
+            <div class="wc-top"><span class="wc-num">09</span><span class="wc-year">2026</span></div>
             <h3 class="wc-name">Base de Datos</h3>
             <span class="wc-icon">🗄️</span>
             <div class="wc-tags"><span class="wc-tag">SQL</span><span class="wc-tag">MySQL</span><span class="wc-tag">Excel</span></div>
           </div>
         </div>
 
-        <div class="w-card" data-idx="5" style="--cg:linear-gradient(135deg,#002a1e 0%,#004a36 50%,#001e14 100%)">
+        <div class="w-card" data-idx="7" style="--cg:linear-gradient(135deg,#002a1e 0%,#004a36 50%,#001e14 100%)">
           <div class="wc-bg"></div><div class="wc-shine"></div>
           <div class="wc-body">
-            <div class="wc-top"><span class="wc-num">06</span><span class="wc-year">2026</span></div>
+            <div class="wc-top"><span class="wc-num">08</span><span class="wc-year">2026</span></div>
             <h3 class="wc-name">Control de Facturas y Ventas</h3>
             <span class="wc-icon">🧾</span>
             <div class="wc-tags"><span class="wc-tag">Excel</span><span class="wc-tag">JavaScript</span><span class="wc-tag">SQL</span></div>
           </div>
         </div>
 
-        <div class="w-card" data-idx="4" style="--cg:linear-gradient(135deg,#2d0a2e 0%,#4a1a50 50%,#1e0520 100%)">
+        <div class="w-card" data-idx="6" style="--cg:linear-gradient(135deg,#2d0a2e 0%,#4a1a50 50%,#1e0520 100%)">
           <div class="wc-bg"></div><div class="wc-shine"></div>
           <div class="wc-body">
-            <div class="wc-top"><span class="wc-num">05</span><span class="wc-year">2026</span></div>
+            <div class="wc-top"><span class="wc-num">07</span><span class="wc-year">2026</span></div>
             <h3 class="wc-name">Tarjetas Publicitarias</h3>
             <span class="wc-icon">🎨</span>
             <div class="wc-tags"><span class="wc-tag">Diseño</span><span class="wc-tag">Canva</span><span class="wc-tag">Illustrator</span></div>
           </div>
         </div>
 
-        <div class="w-card" data-idx="3" style="--cg:linear-gradient(135deg,#2a1200 0%,#4a2800 50%,#1e0e00 100%)">
+        <div class="w-card" data-idx="5" style="--cg:linear-gradient(135deg,#2a1200 0%,#4a2800 50%,#1e0e00 100%)">
           <div class="wc-bg"></div><div class="wc-shine"></div>
           <div class="wc-body">
-            <div class="wc-top"><span class="wc-num">04</span><span class="wc-year">2026</span></div>
+            <div class="wc-top"><span class="wc-num">06</span><span class="wc-year">2026</span></div>
             <h3 class="wc-name">DOSLEG — Sitio Web</h3>
             <span class="wc-icon">🌐</span>
             <div class="wc-tags"><span class="wc-tag">HTML</span><span class="wc-tag">CSS</span><span class="wc-tag">JavaScript</span></div>
           </div>
         </div>
 
-        <div class="w-card" data-idx="2" style="--cg:linear-gradient(135deg,#1e1040 0%,#2d1b69 50%,#1a0e50 100%)">
+        <div class="w-card" data-idx="4" style="--cg:linear-gradient(135deg,#1e1040 0%,#2d1b69 50%,#1a0e50 100%)">
           <div class="wc-bg"></div><div class="wc-shine"></div>
           <div class="wc-body">
-            <div class="wc-top"><span class="wc-num">03</span><span class="wc-year">2026</span></div>
+            <div class="wc-top"><span class="wc-num">05</span><span class="wc-year">2026</span></div>
             <h3 class="wc-name">Portafolio Personal</h3>
             <span class="wc-icon">🌐</span>
             <div class="wc-tags"><span class="wc-tag">HTML</span><span class="wc-tag">CSS</span><span class="wc-tag">JS</span></div>
           </div>
         </div>
 
-        <div class="w-card" data-idx="1" style="--cg:linear-gradient(135deg,#0d2b24 0%,#1a4a3c 50%,#0a2018 100%)">
+        <div class="w-card" data-idx="3" style="--cg:linear-gradient(135deg,#0d2b24 0%,#1a4a3c 50%,#0a2018 100%)">
           <div class="wc-bg"></div><div class="wc-shine"></div>
           <div class="wc-body">
-            <div class="wc-top"><span class="wc-num">02</span><span class="wc-year">2026</span></div>
+            <div class="wc-top"><span class="wc-num">04</span><span class="wc-year">2026</span></div>
             <h3 class="wc-name">Sistema de Gestión Comercial</h3>
             <span class="wc-icon">🏪</span>
             <div class="wc-tags"><span class="wc-tag">React</span><span class="wc-tag">Node.js</span><span class="wc-tag">SQL</span></div>
           </div>
         </div>
 
-        <div class="w-card" data-idx="0" style="--cg:linear-gradient(135deg,#1e3a5f 0%,#0d1f3c 50%,#162d4e 100%)">
+        <div class="w-card" data-idx="2" style="--cg:linear-gradient(135deg,#1e3a5f 0%,#0d1f3c 50%,#162d4e 100%)">
           <div class="wc-bg"></div><div class="wc-shine"></div>
           <div class="wc-body">
-            <div class="wc-top"><span class="wc-num">01</span><span class="wc-year">2026</span></div>
+            <div class="wc-top"><span class="wc-num">03</span><span class="wc-year">2026</span></div>
             <h3 class="wc-name">Software de Inventarios</h3>
             <span class="wc-icon">📦</span>
             <div class="wc-tags"><span class="wc-tag">JavaScript</span><span class="wc-tag">Node.js</span><span class="wc-tag">SQL</span></div>
+          </div>
+        </div>
+
+        <div class="w-card" data-idx="1" style="--cg:linear-gradient(135deg,#1f1508 0%,#4a3015 50%,#150e05 100%)">
+          <div class="wc-bg"></div><div class="wc-shine"></div>
+          <div class="wc-body">
+            <div class="wc-top"><span class="wc-num">02</span><span class="wc-year">2025</span></div>
+            <h3 class="wc-name">SATYA — Espacio Terapéutico</h3>
+            <span class="wc-icon">🌿</span>
+            <div class="wc-tags"><span class="wc-tag">HTML</span><span class="wc-tag">CSS</span><span class="wc-tag">JavaScript</span></div>
+          </div>
+        </div>
+
+        <div class="w-card" data-idx="0" style="--cg:linear-gradient(135deg,#2a0d1e 0%,#5c1535 50%,#1a0812 100%)">
+          <div class="wc-bg"></div><div class="wc-shine"></div>
+          <div class="wc-body">
+            <div class="wc-top"><span class="wc-num">01</span><span class="wc-year">2026</span></div>
+            <h3 class="wc-name">Bakinglove — Panel</h3>
+            <span class="wc-icon">🧁</span>
+            <div class="wc-tags"><span class="wc-tag">Next.js</span><span class="wc-tag">React</span><span class="wc-tag">localStorage</span></div>
           </div>
         </div>
 
@@ -1173,6 +1196,7 @@ footer{
         <h3 class="wi-title" id="wiTitle">—</h3>
         <p class="wi-desc" id="wiDesc">—</p>
         <div class="wi-tags" id="wiTags"></div>
+        <div class="wi-links" id="wiLinks"></div>
         <button class="wi-gallery-btn" id="wiGalleryBtn">📸 Ver más</button>
         <div class="wi-gallery" id="wiGallery"></div>
         <button class="wi-back" id="wiBack">↩ Volver a tarjetas</button>
@@ -1187,6 +1211,7 @@ footer{
         <button class="wd" data-target="5"></button>
         <button class="wd" data-target="6"></button>
         <button class="wd" data-target="7"></button>
+        <button class="wd" data-target="8"></button>
       </div>
     </div>
   </div>
@@ -1228,6 +1253,11 @@ footer{
   <span>Puebla, México · Remoto OK</span>
   <span>ruben.dinorin8@gmail.com</span>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <img class="lightbox-img" id="lightboxImg" src="" alt=""/>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
+</div>
 
 <script>
 (function(){
@@ -1286,49 +1316,7 @@ footer{
 (function(){
   const DATA=[
     {
-      num:'01',title:'Software de Inventarios',
-      desc:'Sistema de control de inventarios, facturación y gestión operativa a medida para pequeña empresa. Automatizó procesos manuales y redujo errores en el registro de productos.',
-      tags:['JavaScript','Node.js','SQL','HTML/CSS'],
-      live:'#',github:'#'
-    },
-    {
-      num:'02',title:'Sistema de Gestión Comercial',
-      desc:'Software a medida para negocio local con módulos de ventas, clientes y reportes. Gestión completa del proyecto desde requerimientos hasta soporte post-entrega.',
-      tags:['React','Node.js','SQL'],
-      live:'#',github:'#'
-    },
-    {
-      num:'03',title:'Portafolio Personal',
-      desc:'Este sitio. HTML puro sin dependencias. Diseño oscuro, animaciones de scroll, foto circular con parallax, tarjetas wallet y timeline de experiencia.',
-      tags:['HTML','CSS','JavaScript'],
-      live:'#',github:'#'
-    },
-    {
-      num:'04',title:'DOSLEG — Sitio Web',
-      desc:'Sitio web corporativo para la empresa DOSLEG. Presentación de servicios, identidad visual y formulario de contacto. Diseño responsivo adaptado a su imagen de marca.',
-      tags:['HTML','CSS','JavaScript'],
-      live:'#',github:'#'
-    },
-    {
-      num:'05',title:'Tarjetas Publicitarias',
-      desc:'Diseño de tarjetas publicitarias digitales e impresas para promoción de negocios locales. Identidad visual, tipografía y composición gráfica orientada a conversión.',
-      tags:['Diseño','Canva','Illustrator'],
-      live:'#',github:'#'
-    },
-    {
-      num:'06',title:'Control de Facturas y Ventas',
-      desc:'Sistema de registro y control de facturación y ventas para pequeña empresa. Reportes automáticos, seguimiento de ingresos y resumen de operaciones por periodo.',
-      tags:['Excel','JavaScript','SQL'],
-      live:'#',github:'#'
-    },
-    {
-      num:'07',title:'Base de Datos',
-      desc:'Diseño e implementación de base de datos relacional para gestión de información empresarial. Consultas optimizadas, reportes y estructura escalable.',
-      tags:['SQL','MySQL','Excel'],
-      live:'#',github:'#'
-    },
-    {
-      num:'08',title:'Bakinglove — Panel de Control',
+      num:'01',title:'Bakinglove — Panel de Control',
       desc:'Sistema de gestión interna para negocio de repostería. Módulos de ventas, ingresos, gastos, calendario de entregas y control de sucursal. Diseño mobile-first con acceso por NIP.',
       tags:['Next.js','React','JavaScript','localStorage'],
       live:'#',github:'#',
@@ -1341,11 +1329,59 @@ footer{
         'screenshots/bakinglove/06-calendario-entregas.png',
         'screenshots/bakinglove/07-control-san-ramon.png'
       ]
+    },
+    {
+      num:'02',title:'SATYA — Espacio Terapéutico',
+      desc:'Sitio web para un espacio de terapia psicológica y bienestar. Diseño cálido y minimalista, orientado a generar confianza y facilitar el contacto con el terapeuta.',
+      tags:['HTML','CSS','JavaScript'],
+      live:'https://satya-espacioterapeutico.vercel.app/',github:'#'
+    },
+    {
+      num:'03',title:'Software de Inventarios',
+      desc:'Sistema de control de inventarios, facturación y gestión operativa a medida para pequeña empresa. Automatizó procesos manuales y redujo errores en el registro de productos.',
+      tags:['JavaScript','Node.js','SQL','HTML/CSS'],
+      live:'#',github:'#'
+    },
+    {
+      num:'04',title:'Sistema de Gestión Comercial',
+      desc:'Software a medida para negocio local con módulos de ventas, clientes y reportes. Gestión completa del proyecto desde requerimientos hasta soporte post-entrega.',
+      tags:['React','Node.js','SQL'],
+      live:'#',github:'#'
+    },
+    {
+      num:'05',title:'Portafolio Personal',
+      desc:'Este sitio. HTML puro sin dependencias. Diseño oscuro, animaciones de scroll, foto circular con parallax, tarjetas wallet y timeline de experiencia.',
+      tags:['HTML','CSS','JavaScript'],
+      live:'#',github:'#'
+    },
+    {
+      num:'06',title:'DOSLEG — Sitio Web',
+      desc:'Sitio web corporativo para la empresa DOSLEG. Presentación de servicios, identidad visual y formulario de contacto. Diseño responsivo adaptado a su imagen de marca.',
+      tags:['HTML','CSS','JavaScript'],
+      live:'#',github:'#'
+    },
+    {
+      num:'07',title:'Tarjetas Publicitarias',
+      desc:'Diseño de tarjetas publicitarias digitales e impresas para promoción de negocios locales. Identidad visual, tipografía y composición gráfica orientada a conversión.',
+      tags:['Diseño','Canva','Illustrator'],
+      live:'#',github:'#'
+    },
+    {
+      num:'08',title:'Control de Facturas y Ventas',
+      desc:'Sistema de registro y control de facturación y ventas para pequeña empresa. Reportes automáticos, seguimiento de ingresos y resumen de operaciones por periodo.',
+      tags:['Excel','JavaScript','SQL'],
+      live:'#',github:'#'
+    },
+    {
+      num:'09',title:'Base de Datos',
+      desc:'Diseño e implementación de base de datos relacional para gestión de información empresarial. Consultas optimizadas, reportes y estructura escalable.',
+      tags:['SQL','MySQL','Excel'],
+      live:'#',github:'#'
     }
   ];
 
-  const HEIGHTS={stacked:275,selected:260};
-  function getFannedH(){return window.innerWidth<=600?900:1080;}
+  const HEIGHTS={stacked:290,selected:260};
+  function getFannedH(){return window.innerWidth<=600?960:1200;}
   const stack=document.getElementById('wStack');
   const cards=Array.from(stack.querySelectorAll('.w-card'));
   const hint=document.getElementById('wHint');
@@ -1384,9 +1420,13 @@ footer{
   function toSelected(idx){
     if(busy)return;busy=true;
     const d=DATA[idx];
-    wiCnt.textContent=d.num+' / 0'+DATA.length;
+    wiCnt.textContent=d.num+' / '+String(DATA.length).padStart(2,'0');
     wiTtl.textContent=d.title;wiDesc.textContent=d.desc;
     wiTags.innerHTML=d.tags.map(t=>`<span class="wi-tag">${t}</span>`).join('');
+    const wiLinks=document.getElementById('wiLinks');
+    wiLinks.innerHTML=d.live&&d.live!=='#'
+      ?`<a class="wi-link-btn" href="${d.live}" target="_blank" rel="noopener">Ver sitio →</a>`
+      :'';
     const wiGallery=document.getElementById('wiGallery');
     const wiGalleryBtn=document.getElementById('wiGalleryBtn');
     wiGallery.classList.remove('open');
@@ -1543,10 +1583,5 @@ footer{
   document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
 })();
 </script>
-
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
-  <img class="lightbox-img" id="lightboxImg" src="" alt=""/>
-  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
-</div>
 </body>
 </html>
